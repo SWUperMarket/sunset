@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복지 정책 안내</title>
+    <link rel="stylesheet" href="{% static 'css/welfare1/Mstyle.css' %}">
+    <style>
+        /* 텍스트에 적용할 글꼴 */
+        body, h1, h2, p, a, th, td {
+            font-family: 'MaruBuri-Regular';
+            font-weight: bold; /* MaruBuri-Regular 글꼴*/
+            
+        }
+    </style>
+</head>  
+
+
+<body>
+    <div class="container">
+        <!-- 왼쪽 섹션: 사진 크게 표시 -->
+        <div class="left-section">
+            <img src="{% static 'image/policy_07_.png' %}" alt="중계종합사회복지관" width="650">
+        </div>
+
+        <!-- 오른쪽 섹션: 복지기관 정보 및 표 -->
+        <div class="right-section">
+            <h1>중계종합사회복지관</h1>
+            <p>소재지: 덕릉로662(중계4동)</p>
+            <p>연락처: 952-0333</p>
+            <br>
+            <h2>홈페이지 링크</h2>
+            <a href="http://www.junggye.or.kr/" target="_blank">클릭하세요</a>
+            <br>
+            <br>
+            <h2>저소득어르신 급식지원 정책</h2>
+            <p>경로식당 : 결식우려가 있는 만 60세 이상 저소득 어르신(국민기초생활수급자, 차상위 등)</p>
+            <p>도시락배달 : 결식우려가 있는 만 65세 이상 거동불편 저소득 어르신(국민기초생활수급자, 차상위 등)</p>
+            <p>밑반찬배달 : 결식우려가 있는 만 65세 이상 저소득 어르신(국민기초생활수급자, 차상위 등)</p>
+            <table>
+                <tr>
+                    <th>경로식당</th>
+                    <th>도시락배달</th>
+                    <th>밑반찬배달</th>
+                </tr>
+                <tr>
+                    <th>O</th>
+                    <th>O</th>
+                    <th>O</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+{% endblock %}

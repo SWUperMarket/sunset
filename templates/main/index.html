@@ -1,0 +1,224 @@
+<!-- main/templates/main/index.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main/main.css' %}">
+</head>
+<body>
+
+
+
+<!-- Main Banner -->
+<section class="main-banner">
+    <img src="{% static 'image/banner.jpg' %}" alt="Banner Image">
+</section>
+
+<div class="contain">
+    <img src="{% static 'image/VI.jpg' %}" alt="VerticalImg" class="vertical-image">
+<div id="chat-container" class="chatbot">
+    <div id="chat-messages" class="chat-area"></div>
+    <input type="text" class="chat-input" placeholder="메시지 입력">
+    <button class="send-button">전송</button>
+</div>
+</div>
+
+<!-- Card News Section -->
+<section class="card-news">
+    <div class="card">
+        <img src="{% static 'image/cardnews1.png' %}" alt="Card Image">
+    </div>
+    <div class="card">
+        <img src="{% static 'image/cardnews2.png' %}" alt="Card Image">
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <a href="mailto:swumarket2024@gmail.com" class="left">이메일</a>
+        <a href="https://www.instagram.com/swu_permarket" class="center">인스타그램</a>
+        <a href="https://github.com/SWUperMarket" class="right">Github</a>
+    </div>
+</footer>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const chatInput = document.querySelector(".chat-input");
+    const chatArea = document.querySelector(".chat-area");
+    const sendButton = document.querySelector(".send-button");
+
+    var API_KEY = JSON.parse("{{ openaiJson|escapejs }}")[0].apikey;
+    const apiEndpoint = 'https://api.openai.com/v1/chat/completions';
+
+    async function fetchSecretKey() {
+        try {
+            const response = await fetch('/common/get-secret-key/');
+            if (!response.ok) {
+                throw new Error('시크릿 키를 가져오지 못했습니다.');
+            }
+            const data = await response.json();
+            return data.API_KEY;
+        } catch (error) {
+            console.error('시크릿 키를 가져오는 동안 오류 발생:', error);
+            return null;
+        }
+    }
+
+    function addMessage(sender, message) {
+        const chatMessage = document.createElement("div");
+        chatMessage.textContent = `${sender}: ${message}`;
+    
+
+        chatMessage.classList.add('message'); // 모든 메시지에 공통으로 적용되는 클래스
+        if (sender === '나') {
+            chatMessage.classList.add('user'); // 사용자 메시지 클래스
+        } else {
+            chatMessage.classList.add('bot'); // 챗봇 메시지 클래스
+        }
+    
+        chatArea.appendChild(chatMessage);
+        chatArea.scrollTop = chatArea.scrollHeight; // Scroll to bottom
+    }
+
+    async function fetchAIResponse(prompt) {
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${API_KEY}`
+            },
+            body: JSON.stringify({
+                model: "gpt-3.5-turbo",
+                messages: [{ role: "user", content: prompt }],
+                temperature: 0.8,
+                max_tokens: 1024,
+                top_p: 1,
+                frequency_penalty: 0.5,
+                presence_penalty: 0.5,
+                stop: ["Human"],
+            }),
+        };
+        try {
+            const response = await fetch(apiEndpoint, requestOptions);
+            const data = await response.json();
+            const aiResponse = data.choices[0].message.content;
+            return aiResponse;
+        } catch (error) {
+            console.error('OpenAI API 호출 중 오류 발생:', error);
+            return 'OpenAI API 호출 중 오류 발생';
+        }
+    }
+
+    /*async function sendMessage(message) {
+        addMessage('나', message);
+        chatInput.value = '';
+        const aiResponse = await fetchAIResponse(message);
+        addMessage('챗봇', aiResponse);
+    }*/
+
+    sendButton.addEventListener("click", function() {
+        const message = chatInput.value.trim();
+        if (message.length > 0) {
+            sendMessage(message);
+        }
+    });
+
+    sendButton.addEventListener('click', async () => {
+        // 사용자가 입력한 메시지
+        const message = chatInput.value.trim();
+        // 메시지가 비어있으면 리턴
+        if (message.length === 0) return;
+        // 사용자 메시지 화면에 추가
+        addMessage('나', message);
+        chatInput.value = '';
+        //ChatGPT API 요청후 답변을 화면에 추가
+        const aiResponse = await fetchAIResponse(message);
+        addMessage('챗봇', aiResponse);
+    });
+
+    chatInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            sendButton.click();
+        }
+    });
+
+    /*async function initializeChatbot() {
+        const apiKey = await fetchSecretKey();
+        if (!apiKey) {
+            console.error('시크릿 키를 가져오지 못했습니다.');
+            return;
+        }
+
+        async function fetchAIResponse(prompt) {
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: "gpt-3.5-turbo",
+                    messages: [{ role: "user", content: prompt }],
+                    temperature: 0.8,
+                    max_tokens: 1024,
+                    top_p: 1,
+                    frequency_penalty: 0.5,
+                    presence_penalty: 0.5,
+                    stop: ["Human"],
+                }),
+            };
+            try {
+                const response = await fetch(apiEndpoint, requestOptions);
+                if (!response.ok) {
+                    throw new Error('챗봇 응답을 가져오지 못했습니다.');
+                }
+                const data = await response.json();
+                const aiResponse = data.choices[0].message.content;
+                return aiResponse;
+            } catch (error) {
+                console.error('챗봇 응답을 가져오는 동안 오류 발생:', error);
+                return '챗봇 응답을 가져오지 못했습니다.';
+            }
+        }
+
+        async function sendMessage(message) {
+            try {
+                const aiResponse = await fetchAIResponse(message);
+                addMessage('챗봇', aiResponse);
+            } catch (error) {
+                console.error('챗봇 응답을 가져오는 동안 오류 발생:', error);
+                addMessage('챗봇', '챗봇 응답을 가져오지 못했습니다.');
+            }
+        }
+
+        sendButton.addEventListener('click', function() {
+            const message = chatInput.value.trim();
+            if (message.length > 0) {
+                addMessage('나', message);
+                chatInput.value = '';
+                sendMessage(message);
+            }
+        });
+
+        chatInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+    }*/
+
+    // 챗봇 초기화 함수 호출
+    initializeChatbot();
+});
+
+</script>
+
+{% endblock %}
+
+

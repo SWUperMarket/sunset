@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/qna/qna.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/qna/qna_list.css' %}">
+   
+</head>
+
+<div class="container my-3 wide-container">
+    <h2>문의 게시판</h2>
+    <div class="row my-3 justify-content-between">
+        <div class="col-8">
+            <div class="input-group">
+                <input type="text" id="search_kw" class="form-control" placeholder="검색어를 입력하세요!" value="{{ kw|default_if_none:'' }}">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="btn_search">검색</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 text-right">
+            <a href="{% url 'qna:question_create' %}" class="btn btn-outline-dark">글쓰기</a>
+        </div>
+    </div>
+
+    {% if question_list %}
+    <div class="list-container">
+        <div class="list-header row">
+            <div class="col text-center">번호</div>
+            <div class="col text-center">제목</div>
+            <div class="col text-center">등록일</div>
+        </div>
+        {% for question in question_list %}
+        <div class="list-item row">
+            <div class="col text-center">{{ question.id }}</div>
+            <div class="col text-left">
+                <a href="{% url 'qna:detail' question.id %}">{{ question.subject }}</a>
+            </div>
+            <div class="col text-center">{{ question.create_date|date:"Y-m-d" }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center">
+        {% if q %}
+        <p>일치하는 검색 결과가 없습니다.</p>
+        {% else %}
+        <p>작성된 게시글이 없습니다.</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Pagination -->
+    <div class="container my-3 wide-container">
+        <ul class="pagination justify-content-center">
+            {% if question_list.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ question_list.previous_page_number }}">&lt;</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" tabindex="-1" aria-disabled="true">&lt;</a>
+            </li>
+            {% endif %}
+
+            {% for page_number in question_list.paginator.page_range %}
+            <li class="page-item {% if page_number == question_list.number %}active{% endif %}">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% endfor %}
+
+            {% if question_list.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ question_list.next_page_number }}">&gt;</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" tabindex="-1" aria-disabled="true">&gt;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+<form id="searchForm" method="get" action="{% url 'qna:index' %}">
+    <input type="hidden" id="kw" name="kw" value="{{ kw|default_if_none:'' }}">
+    <input type="hidden" id="page" name="page" value="{{ page }}">
+</form>
+{% endblock %}
+{% block script %}
+<script type='text/javascript'>
+const page_elements = document.querySelectorAll(".page-link");
+page_elements.forEach(element => {
+    element.addEventListener('click', function() {
+        document.getElementById('page').value = this.dataset.page;
+        document.getElementById('searchForm').submit();
+    });
+});
+
+const btn_search = document.getElementById("btn_search");
+btn_search.addEventListener('click', function() {
+    document.getElementById('kw').value = document.getElementById('search_kw').value;
+    document.getElementById('page').value = 1;  // 검색버튼을 클릭할 경우 1페이지부터 조회한다.
+    document.getElementById('searchForm').submit();
+});
+</script>
+{% endblock %}

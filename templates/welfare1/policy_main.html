@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/welfare1/Mstyle.css' %}">
+    <style>
+        /* 이미지와 텍스트를 감싸는 div의 스타일 */
+        .image-container {
+            position: relative; /* 이미지와 텍스트를 포함하는 div의 위치를 지정하기 위해 설정 */
+            width: 30%; /* 이미지 컨테이너의 너비를 23%로 설정하여 한 줄에 3개의 이미지가 나타나도록 함 */
+            margin: 7%; /* 이미지 컨테이너 사이의 간격을 설정 */
+            float: left; /* 이미지 컨테이너를 왼쪽으로 정렬하여 한 줄에 3개씩 표시 */
+            font-family: 'MaruBuri-Regular'; /* MaruBuri-Regular 글꼴  */
+        }
+
+        /* 텍스트의 스타일 */
+        .image-text {
+            position: absolute; /* 텍스트의 위치를 지정하기 위해 설정 */
+            bottom: -10; /* 이미지 아래에 위치하도록 설정 */
+            left: 0; /* 왼쪽 정렬 */
+            width: 105.15%; /* 부모 요소의 너비에 맞춤 */
+            background-color: black; /* 텍스트 배경색 및 투명도 설정 */
+            padding: 3px; /* 텍스트 주변 여백 설정 */
+            text-align: center; /* 텍스트 가운데 정렬 */
+            font-size: 40px; /* 텍스트 크기 설정 */
+            color: white; /* 텍스트 색상 설정 */
+            font-family: 'MaruBuri-Regular'; /* MaruBuri-Regular 글꼴  */
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_01' %}">
+            <img src="{% static 'image/policy_01.png' %}" alt="공릉종합사회복지관" width="600" height="300">
+        </a>
+        <div class="image-text">공릉종합사회복지관</div>
+    </div>
+    
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_02' %}">
+            <img src="{% static 'image/policy_02.jpg' %}" alt="노원1종합사회복지관" width="600" height="300">
+        </a>
+        <div class="image-text">노원1종합사회복지관</div>
+    </div>
+    
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_03' %}">
+            <img src="{% static 'image/policy_03_.jpg' %}" alt="마들종합사회복지관" width="600" height="300">
+        </a>
+        <div class="image-text">마들종합사회복지관</div>
+    </div>
+    
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_04' %}">
+            <img src="{% static 'image/policy_04.jpg' %}" alt="북부종합사회복지관" width="600" height="300">
+        </a>
+        <div class="image-text">북부종합사회복지관</div>
+    </div>
+    
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_05' %}">
+            <img src="{% static 'image/policy_05_.jpg' %}" alt="상계종합사회복지관" width="600" height="300">
+        </a>
+        <div class="image-text">상계종합사회복지관</div>
+    </div>
+    
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_06' %}">
+            <img src="{% static 'image/policy_06_.jpg' %}" alt="월계종합사회복지관" width="600" height="300">
+        </a>
+        <div class="image-text">월계종합사회복지관</div>
+    </div>
+    
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_07' %}">
+            <img src="{% static 'image/policy_07_.png' %}" alt="중계종합사회복지관" width="600" height="300">
+        </a>
+        <div class="image-text">중계종합사회복지관</div>
+    </div>
+    
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_08' %}">
+            <img src="{% static 'image/policy_08_.png' %}" alt="평화종합사회복지관" width="600" height="300">
+        </a>
+        <div class="image-text">평화종합사회복지관</div>
+    </div>
+    
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_09' %}">
+            <img src="{% static 'image/policy_09_.png' %}" alt="하계종합사회복지관" width="600" height="300">
+        </a>
+        <div class="image-text">하계종합사회복지관</div>
+    </div>
+    
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_10' %}">
+            <img src="{% static 'image/policy_10_.png' %}" alt="시립노원노인종합복지관" width="600" height="300">
+        </a>
+        <div class="image-text">시립노원노인종합복지관</div>
+    </div>
+    
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_11' %}">
+            <img src="{% static 'image/policy_11_.png' %}" alt="공릉노인복지관" width="600" height="300">
+        </a>
+        <div class="image-text">공릉노인복지관</div>
+    </div>
+    
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_12' %}">
+            <img src="{% static 'image/policy_12_.png' %}" alt="월계노인복지관" width="600" height="300">
+        </a>
+        <div class="image-text">월계노인복지관</div>
+    </div>
+</body>
+{% endblock %}

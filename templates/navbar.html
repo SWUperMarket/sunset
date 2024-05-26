@@ -1,0 +1,86 @@
+<style>
+
+
+    @font-face {
+        font-family: 'MaruBuri-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body .navbar {
+        font-size: initial !important;
+    }
+
+    .navbar {
+        background-color: rgb(255, 255, 255) !important;
+        border-bottom: 0.5px solid #000000 !important;
+        backdrop-filter: blur(9px);
+    }
+
+    .navbar-brand {
+        color: #000000 !important;
+        font-size: 33px !important;
+        padding-left: 55px;
+        font-family: 'MaruBuri-Regular' !important;
+    }
+
+    .navbar-nav {
+        padding-right: 50px;
+    }
+
+    .nav-item {
+        margin-right: 20px;
+        font-size: initial !important;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        color: #000000 !important; /* 글씨 색상 */
+        transition: color 0.3s, background-color 0.3s; /* 색상 전환 효과를 부드럽게 */
+        padding: 10px 15px !important;
+        border-radius: 5px;
+        font-family: 'MaruBuri-Regular' !important;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover,
+    .navbar-nav .nav-item .nav-link:focus,
+    .navbar-nav .nav-item .nav-link:active {
+        color: #000000;
+        background-color: transparent;
+        border: 1px solid #000000;
+        font-family: 'MaruBuri-Regular' !important;
+    }
+</style>
+
+<!-- 네비게이션바 -->
+<nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark border-bottom">
+    <div class="container-fluid">
+        <b><a class="navbar-brand" href="{% url 'main:index' %}"><span>善世: SUNSET</span></a></b>
+        
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'main:index' %}">MAIN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'team:index' %}">팀 소개</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'welfare1:index' %}">복지시설</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'qna:index' %}"><span>QnA</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>

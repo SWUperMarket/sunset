@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/team/introduce.css' %}">
+</head>
+<body>
+<!-- intro -->
+<section id="intro">
+    <div class="intro-buttons">
+        <button id="button1"><img src="{% static 'image/button1.png' %}" alt="Button 1"></button>
+        <button id="button2"><img src="{% static 'image/button2.png' %}" alt="Button 2"></button>
+    </div>
+    <div id="selfIntro">
+        <div class="intro-image-container">
+            <img src="{% static 'image/intro-image.jpg' %}" alt="intro-image">
+            <p class="creator-intro">팀 소개</p>
+            <p class="team-intro">
+                저희는 노인 인권 향상을 비롯해<br> 
+                사회에 필요한 다양한 가치를 한 곳에 모아 실현하는 것을 목표로 하는<br> 
+                '슈퍼마켓'팀입니다.<br><br>
+                고령층과 타세대간의 정보 격차를 완화하고<br>
+                노인 빈곤, 노인 고독 등을 포함한 다양한 노인 인권 문제를 해결을 목표로 합니다.<br>
+                슈퍼마켓팀이 제작한 웹사이트를 통해<br>
+                인공지능을 비롯한 다양한 디지털 기기 및 기술을<br>
+                고령층이 더 친숙하게 느낄 수 있기를 바라며 디지털 소외 문제에 기여하기를 바랍니다.
+            </p>
+            <p class="line"></p>
+            <p class="creator-intro">제작자 소개</p>
+        </div>
+        <div class="creator-images">
+            <div class="creator-item">
+                <img src="{%static 'image/jiyoon.png' %}" alt="jiyoon">
+                <p class="creator-text">강지윤</p>
+                <p class="school">서울여자대학교 소프트웨어융합학과</p>
+                <p class="additional-text">
+                    <span class="bullet">•</span> 2024
+                    <br>바롬종합설계프로젝트 참여
+                </p>
+                <a href="#" class="more-link"><img src="{% static 'image/more.png' %}" alt="more"></a>
+            </div>
+            <div class="creator-item">
+                <img src="{% static 'image/hyemin.png' %}"  alt="hyemin">
+                <p class="creator-text">김혜민</p>
+                <p class="school">서울여자대학교 정보보호학과</p>
+                <p class="additional-text">
+                    <span class="bullet">•</span> 2024
+                    <br>바롬종합설계프로젝트 참여
+                </p>
+                <a href='https://twilight-burglar-365.notion.site/d8b2dd9e81f342b7a9598461491499e4?pvs=4' class="more-link"><img src="{% static 'image/more.png' %}" alt="more"></a>
+            </div>
+            <div class="creator-item">
+                <img src="{% static 'image/hwajoo.png' %}" alt="hwajoo">
+                <p class="creator-text">신화주</p>
+                <p class="school">서울여자대학교 소프트웨어융합학과</p>
+                <p class="additional-text">
+                    <span class="bullet">•</span> 2024
+                    <br>바롬종합설계프로젝트 참여
+                </p>
+                <a href="#" class="more-link"><img src="{% static 'image/more.png' %}" alt="more"></a>
+            </div>
+            <div class="creator-item">
+                <img src="{% static 'image/woohyeon.png' %}" alt="woohyeon">
+                <p class="creator-text">조우현</p>
+                <p class="school">서울여자대학교 소프트웨어융합학과</p>
+                <p class="additional-text">
+                    <span class="bullet">•</span> 2024
+                    <br>바롬종합설계프로젝트 참여
+                </p>
+                <a href="#" class="more-link"><img src="{% static 'image/more.png' %}" alt="more"></a>
+            </div>
+            <div class="creator-item">
+                <img src="{% static 'image/jimin.png' %}" alt="jimin">
+                <p class="creator-text">한지민</p>
+                <p class="school">서울여자대학교 정보보호학과</p>
+                <p class="additional-text">
+                    <span class="bullet">•</span> 2024
+                    <br>바롬종합설계프로젝트 참여
+                </p>
+                <a href="#" class="more-link"><img src="{% static 'image/more.png' %}" alt="more"></a>
+            </div>
+        </div>
+    </div>
+    <div id="sunsetIntro">
+        <div class="sunset-intro-container">
+            <img src="{% static 'image/poster1.png' %}" alt="Poster 1" class="sunset-intro-image">
+            <span class="sunset-intro-text">
+                <img src="{% static 'image/sunset2.png' %}" alt="sunset-intro2" class="sunset-intro2">
+                <p class="sunset-intro-detail">
+                    '善世'란 선한 세상이라는 의미로<br>
+                    노인 계층의 정보 불평등을 해소하여<br>
+                    노인의 생활의 질을 개선하고<br>
+                    사회 구성원간 소속감을 향상해서<br>
+                    선한 세상에 기여하는 것을 목표로 합니다.
+                </p>
+            </span>
+        </div>
+        <div class="sunset-intro-container">
+            <span class="sunset-intro-text2">
+                <p class="sunset-intro-title">복지 시설 소개</p>
+                <p class="sunset-intro-detail">
+                    상단의 복지 시설 버튼을 누르면<br>
+                    경로당, 복지관, 요양시설 등<br>
+                    다양한 복지 시설을<br>
+                    확인할 수 있습니다.<br>
+                    시설명, 위치, 번호 등<br>
+                    다양한 정보를 확인해보세요.
+                </p>
+            </span>
+            <img src="{% static 'image/poster2.png' %}" alt="Poster 1" class="sunset-intro-image2">
+        </div>
+        <div class="sunset-intro-container">
+            <img src="{% static 'image/poster4.png' %}" alt="Poster 1" class="sunset-intro-image4">
+            <span class="sunset-intro-text">
+                <p class="sunset-intro-title">QnA 소개</p>
+                <p class="sunset-intro-detail">
+                    상단의 QnA 버튼을 누르면<br>
+                    게시글을 작성 할 수 있습니다.<br>
+                    제작자에게 궁금한 점<br> 
+                    또는 추가 문의사항이<br>
+                    있다면 글을 올려주세요.
+                </p>
+            </span>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <a href="mailto:youremail@example.com" class="left">이메일</a>
+        <a href="https://www.instagram.com/swu_permarket" class="center">인스타그램</a>
+        <a href="https://github.com/SWUperMarket" class="right">Github</a>
+    </div>
+</footer>
+
+<script src="{% static 'js/team/introduce.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}

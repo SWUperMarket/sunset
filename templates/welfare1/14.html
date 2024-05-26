@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노인 요양 공동 생활가정 세부정보</title>
+    <link rel="stylesheet" href="{% static 'css/welfare1/Mstyle.css' %}">
+    <style>
+        /* 텍스트에 적용할 글꼴 */
+        body, h1, h2, p, a, th, td {
+            font-family: 'MaruBuri-Regular';
+            font-weight: bold; /* MaruBuri-Regular 글꼴*/
+            
+        }
+    </style>
+</head>
+
+<header>
+
+    <script src="{% static 'js/welfare1/script.js' %}"></script>
+</header>
+
+<body>
+    <div class="container">
+
+            <table>
+                <tr>
+                    <th>번호</th>
+                    <th>요양원명</th>
+                    <th>주소</th>
+                    <th>담당자</th>
+                    <th>전화번호</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>가온요양원</td>
+                    <td>노원로 479 (5층)</td>
+                    <td>이정희</td>
+                    <td>951-3001</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>효누리요양원</td>
+                    <td>한글비석로 422 (3층)</td>
+                    <td>김태연</td>
+                    <td>937-1030</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>늘봄요양원</td>
+                    <td>한글비석로47길 58 (2층)</td>
+                    <td>문덕흥</td>
+                    <td>935-8889</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>노원행복한요양원</td>
+                    <td>한글비석로47길 58 (4층)</td>
+                    <td>임계남</td>
+                    <td>936-0055</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>가족마음요양원</td>
+                    <td>한글비석로47길 58 (5층)</td>
+                    <td>심기술</td>
+                    <td>936-2626</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>성모요양원</td>
+                    <td>노원로 479 (3층)</td>
+                    <td>서민정</td>
+                    <td>951-3004</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>수요양원</td>
+                    <td>동일로237다길 16 (상계동)</td>
+                    <td>최진</td>
+                    <td>936-1231</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>노블레스요양원</td>
+                    <td>노원로 479 (2층)</td>
+                    <td>김이엘</td>
+                    <td>930-4321</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>돌봄간호요양원2</td>
+                    <td>동일로 1550 6층601호 (상계동)</td>
+                    <td>전효영</td>
+                    <td>931-3657</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>사랑과섬김요양원</td>
+                    <td>한글비석로 422 (5층)</td>
+                    <td>고계자</td>
+                    <td>930-1288</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>늘품실버요양원</td>
+                    <td>서울특별시 노원구 한글비석로47길 58 3층 (상계동)</td>
+                    <td></td>
+                    <td>939-7775</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>돌봄과간호요양원1</td>
+                    <td>동일로 1550, 604호 (상계동, 고려프라자빌딩)</td>
+                    <td>채미애</td>
+                    <td>931-3657</td>
+                </tr>
+                </table>
+            
+        </div>
+    </div>
+</body>
+<br>
+<br>
+<br>
+{% endblock %}

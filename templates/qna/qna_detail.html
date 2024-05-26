@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/qna/qna_detail.css' %}">
+</head>
+
+<div class="container my-3 wide-container">
+    <!-- 질문 -->
+    <a href="{% url 'qna:index' %}" style="text-decoration: none;"><h2>QnA</h2></a>
+    <br>
+    <div class="date-container">
+        <div class="badge bg-light text-dark p-2 date-badge">
+            {{ question.create_date }}
+        </div>
+    </div>
+    <div class="card my-3 border-0">
+        <div class="card-body">
+            <div class="card-text" style="font-weight: bold; font-size: 20px; display: flex;">
+                {{ question.id }}
+                <div class="card-text" style="padding-left: 30px; padding-right: 25px; flex: 1; word-break: break-all;">
+                    {{ question.subject }}
+                </div>
+            </div>
+            <div class="card-text" style="padding: 6px 45px;">{{ question.content }}</div>
+        </div>
+    </div>
+    <br>
+    
+    <!-- 답변 -->
+    <h5 class="border-bottom my-3 py-2" style="color: #000;"><span style="color: #000">{{question.answer_set.count}}</span>개의 답변이 있습니다.</h5>
+    {% for answer in question.answer_set.all %}
+    <div class="date-container">
+        <div class="badge bg-light text-dark p-2 date-badge">
+            {{ answer.create_date }}
+        </div>
+    </div>
+    <div class="card my-3 border-0">
+        <div class="card-body">
+            <div class="card-text" style="display: flex;">
+                <span style="font-weight: bold;">운영자</span>
+                <div class="card-text" style="padding-left: 30px; padding-right: 25px; flex: 1; word-break: break-all;">
+                    {{ answer.content }}
+                </div>
+            </div>
+            <div class="my-3">
+                {% if request.user == answer.author %}
+                    <a href="#" class="delete btn btn-sm btn-outline-secondary "
+                        data-uri="{% url 'qna:answer_delete' answer.id  %}">삭제</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <br>
+    <!-- 답변 등록 -->
+    {% if user.is_authenticated %}
+        <form action="{% url 'qna:answer_create' question.id %}" method="post" class="my-3">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="content" class="form-label" style="color: #000000;">답변하기</label>
+                <textarea {% if not user.is_authenticated %}disabled{% endif %}
+                name="content" id="content" class="form-control" rows="5"></textarea>
+            </div>
+            <input type="submit" value="답변등록" class="btn btn-outline-light">
+        </form>
+    {% else %}
+    
+    {% endif %}
+</div>
+{% endblock %}
+
+<!-- 질문 삭제 box-->
+{% block script %}
+<script type='text/javascript'>
+const delete_elements = document.getElementsByClassName("delete");
+Array.from(delete_elements).forEach(function(element) {
+    element.addEventListener('click', function() {
+        if(confirm("답글을 삭제하시겠습니까?")) {
+            location.href = this.dataset.uri;
+        };
+    });
+});
+</script>
+{% endblock %}

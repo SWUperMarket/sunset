@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노인요양시설 세부정보</title>
+    <link rel="stylesheet" href="{% static 'css/welfare1/Mstyle.css' %}">
+    <style>
+        /* 텍스트에 적용할 글꼴 */
+        body, h1, h2, p, a, th, td {
+            font-family: 'MaruBuri-Regular';
+            font-weight: bold; /* MaruBuri-Regular 글꼴*/
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+            <table>
+                <tr>
+                    
+                    <th>요양원명</th>
+                    <th>주소</th>
+                    <th>담당자</th>
+                    <th>전화번호</th>
+                </tr>
+                <tr>
+                    <td>태릉참실버케어</td>
+                    <td>서울특별시 노원구 화랑로51가길 11-8 (공릉동)</td>
+                    <td>조병환</td>
+                    <td>02-949-3301</td>
+                    </tr>
+                    <tr>
+                    <td>구립하계실버센터</td>
+                    <td>서울특별시 노원구 한글비석로 4 (하계동)</td>
+                    <td>김기숙</td>
+                    <td>02-975-9555</td>
+                    </tr>
+                    <tr>
+                    <td>A+행복한그린요양원</td>
+                    <td>서울특별시 노원구 동일로230나길 23 (상계동)</td>
+                    <td>박기숙</td>
+                    <td>02-951-3877</td>
+                    </tr>
+                    <tr>
+                    <td>상계요양원</td>
+                    <td>서울특별시 노원구 동일로242바길 27 (상계동)</td>
+                    <td>박미진</td>
+                    <td>02-931-3376</td>
+                    </tr>
+                    <tr>
+                    <td>러빙케어</td>
+                    <td>서울특별시 노원구 상계로1길 54-4 207, 307호 (상계동, 상계동센트럴타워)</td>
+                    <td>이대석</td>
+                    <td>02-939-8300</td>
+                    </tr>
+                    <tr>
+                    <td>길요양원</td>
+                    <td>서울특별시 노원구 한글비석로15길 48 (중계동)</td>
+                    <td>최상규</td>
+                    <td>02-939-6993</td>
+                    </tr>
+                    <tr>
+                    <td>노원실버센터</td>
+                    <td>서울특별시 노원구 동일로 1097 (공릉동)</td>
+                    <td>이수남</td>
+                    <td>02-978-7722</td>
+                    </tr>
+                    <tr>
+                    <td>늘사랑실버센터</td>
+                    <td>서울특별시 노원구 한글비석로 444 5, 4층1-2호 (상계동)</td>
+                    <td>김용길</td>
+                    <td>02-932-0033</td>
+                    </tr>
+                    <tr>
+                    <td>노원요양복지원</td>
+                    <td>서울특별시 노원구 노원로 464 (상계동)</td>
+                    <td>허숙</td>
+                    <td>02-938-0001</td>
+                    </tr>
+                    <tr>
+                    <td>시립중계노인전문요양원</td>
+                    <td>서울특별시 노원구 섬밭로 313 (중계동)</td>
+                    <td>정재흠</td>
+                    <td>02-3399-7500</td>
+                    </tr>
+                    <tr>
+                    <td>영기노인요양원</td>
+                    <td>서울특별시 노원구 동일로248길 30 (상계동)</td>
+                    <td>김원제</td>
+                    <td>02-939-8111</td>
+                    </tr>
+                    <tr>
+                    <td>서울실버케어노인요양원</td>
+                    <td>서울특별시 노원구 한글비석로44길 31 2,3,4층 (상계동)</td>
+                    <td>김정분</td>
+                    <td>02-931-4450</td>
+                    </tr>
+                    
+            </table>
+        </div>
+    </div>
+</body>
+<br>
+<br>
+
+{% endblock %}

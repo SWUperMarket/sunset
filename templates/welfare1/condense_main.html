@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>급식정책소개</title>
+    <link rel="stylesheet" href="{% static 'css/welfare1/Mstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/welfare1/intro.css' %}">
+    <style>
+        /* 이미지와 텍스트를 감싸는 div의 스타일 */
+        .image-container {
+            position: relative; /* 이미지와 텍스트를 포함하는 div의 위치를 지정하기 위해 설정 */
+            width: 20%; /* 이미지 컨테이너의 너비를 23%로 설정하여 한 줄에 3개의 이미지가 나타나도록 함 */
+            margin: 5%; /* 이미지 컨테이너 사이의 간격을 설정 */
+            float: left; /* 이미지 컨테이너를 왼쪽으로 정렬하여 한 줄에 3개씩 표시 */
+            max-width : 700px;
+            min-width : 700px;
+            
+        }
+
+        /* 텍스트의 스타일 */
+        .image-text {
+            position: absolute; /* 텍스트의 위치를 지정하기 위해 설정 */
+            bottom: 0; /* 이미지 아래에 위치하도록 설정 */
+            left: 0; /* 왼쪽 정렬 */
+            width: 105%; /* 부모 요소의 너비에 맞춤 */
+            background-color: black; /* 텍스트 배경색 및 투명도 설정 */
+            padding: 3px; /* 텍스트 주변 여백 설정 */
+            text-align: center; /* 텍스트 가운데 정렬 */
+            font-size: 36px; /* 텍스트 크기 설정 */
+            color: white; /* 텍스트 색상 설정 */
+            max-width : 700px;
+            min-width : 700px;
+        } 
+
+        
+        
+        /* 추가한 @font-face 규칙 */
+        @font-face {
+            font-family: 'MaruBuri-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        /* 복지정책소개 페이지 전체에 MaruBuri-Regular 글꼴을 적용 */
+        html, body {
+            font-family: 'MaruBuri-Regular', sans-serif;
+        }
+    </style>
+</head>
+<body>
+	
+    <div class="image-container">
+        <a href="{% url 'welfare1:policy_main' %}">
+            <img src ="{% static 'image/bap.jpg' %}" alt="공릉종합사회복지관" width="710" height="500">
+        </a>
+        <div class="image-text">급식 지원</div>
+    </div>
+    
+        <div class="image-container">
+        <a href="{% url 'welfare1:protect' %}">
+            <img src="https://cdn.pixabay.com/photo/2015/07/01/09/27/silhouettes-827423_1280.jpg" alt="주야간 보호서비스" width="700" height="500">
+        </a>
+        <div class="image-text">주야간 보호서비스</div>
+    </div>
+    
+        <div class="image-container">
+        <a href="{% url 'welfare1:home' %}">
+            <img src="{% static 'image/home.jpg' %}" alt="노인요양 공동생활가정" width="700" height="500">
+        </a>
+        <div class="image-text">노인요양 공동생활가정</div>
+    </div>
+
+    <div class="image-container">
+        <a href="{% url 'welfare1:welfare_detail' %}">
+            <img src="{% static 'image/welfare_detail.jpg' %}" alt="방문요양 지원시설" width="700" height="500">
+        </a>
+        <div class="image-text">방문 요양 지원시설</div>
+    </div>
+
+    <div class="image-container">
+        <a href="{% url 'welfare1:senior_class' %}">
+            <img src="{% static 'image/visitingnursing.jpg' %}" alt="방문간호" width="700" height="500">
+        </a>
+        <div class="image-text">방문간호</div>
+    </div>
+
+    <div class="image-container">
+        <a href="{% url 'welfare1:nursing' %}">
+            <img src="{% static 'image/nursing.jpg' %}" alt="노인요양시설" width="700" height="500">
+        </a>
+        <div class="image-text">노인요양시설</div>
+    </div>
+  </body>
+</html>
+{% endblock %}

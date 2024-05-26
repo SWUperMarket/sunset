@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복지 정책 안내</title>
+    <link rel="stylesheet" href="{% static 'css/welfare1/Mstyle.css' %}">
+</head>    
+<header>
+
+    <script src="{% static 'js/welfare1/script.js' %}"></script>
+</header>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <img src="{% static 'image/policy_01.png' %}" alt="공릉종합사회복지관" width="700">
+        </div>
+        <div class="right-section">
+            <h1>공릉종합사회복지관</h1>
+            <p>소재지: 동일로1127 (공릉1동)</p>
+            <p>연락처: 948-0520</p>
+            <h2>홈페이지 링크</h2>
+            <a href="http://www.gongreung.or.kr/main/main.html" target="_blank">클릭하세요</a>
+            <h2>저소득어르신 급식지원 정책</h2>
+            <p>경로식당 : 결식우려가 있는 만 60세 이상 저소득 어르신(국민기초생활수급자, 차상위 등)</p>
+            <p>도시락배달 : 결식우려가 있는 만 65세 이상 거동불편 저소득 어르신(국민기초생활수급자, 차상위 등)</p>
+            <p>밑반찬배달 : 결식우려가 있는 만 65세 이상 저소득 어르신(국민기초생활수급자, 차상위 등)</p>
+            <table>
+                <tr>
+                    <th>경로식당</th>
+                    <th>도시락배달</th>
+                    <th>밑반찬배달</th>
+                </tr>
+                <tr>
+                    <th>O</th>
+                    <th>O</th>
+                    <th>O</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+
+{% endblock %}

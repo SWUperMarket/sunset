@@ -1,0 +1,334 @@
+/* main/static/main/Mstyle.css */
+
+@font-face {
+    font-family: 'MaruBuri-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    font-family: 'MaruBuri-Regular', Arial, sans-serif;
+    padding-bottom: 0px;
+    padding-top: 70px;
+}
+
+nav {
+    background-color: #fff;
+    color: #000000;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    background-color: #fff;
+    color: #000000;
+    border: none;
+    padding: 5px 10px;
+}
+
+.burger {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.main-banner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.contain {
+    display: flex;
+}
+
+.message {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    max-width: 60%;
+    word-wrap: break-word;
+    background-color: #e6e6e6;
+    /*border: 1px solid #ccc;
+    clear: both;*/
+}
+
+.message.user {
+    background-color: #d1e7dd;
+    align-self: flex-end;
+    text-align: right;
+    float: right;
+}
+
+.message.bot {
+    background-color: #f8d7da;
+    align-self: flex-start;
+    text-align: left;
+    float: left;
+}
+
+/* 챗봇 채팅 영역 스타일 */
+.chat-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100% - 60px); /* Adjusted for padding and input height */
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.chatbot {
+    position: relative;
+    width: 75%;
+    height: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    float: right;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+}
+
+.vertical-image {
+    margin-top: 3%;
+    padding-left: 5%;
+    height: 800px;
+    width: auto;
+    max-height: 70%;
+    max-width: 70%;
+}
+
+.chat-input {
+    position: absolute;
+    bottom: 20px;
+    margin-right: 10px;
+    width: 70%;
+    height: 10%;
+    font-size: 20px;
+}
+
+.send-button {
+    position: absolute;
+    bottom: 20px;
+    width: 15%;
+    right: 20px;
+    height: 10%;
+    font-size: 1.2em;
+}
+
+.chat-input, .send-button {
+    font-family: 'MaruBuri-Regular', Arial, sans-serif;
+}
+
+.card-news {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.card {
+    width: 40rem;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.card-content h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card-content p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.left, .right {
+    flex-basis: 45%;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.left:hover, .right:hover {
+    text-decoration: none;
+}
+
+.center {
+    flex-basis: 10%;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.center:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left, .right {
+        flex-basis: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        background-color: #333;
+        top: 60px;
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+
+    .main-banner img {
+        width: 100%;
+    }
+
+    .chatbot {
+        width: 95%;
+        height: auto;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: 'MaruBuri-Regular', Arial, sans-serif;
+}
+
+.facility-details {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.facility-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.facility-image {
+    width: 50%;
+}
+
+.facility-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-right: 100px;
+}
+
+.facility-info {
+    width: 30%;
+    margin-left: 100px;
+}
+
+.facility-info h2 {
+    color: #666;
+}
+
+.facility-info p {
+    margin-bottom: 10px;
+}
+
+.facility-info h2, .facility-info p {
+    font-family: 'MaruBuri-Regular.ttf';
+}
+
+#facility-link {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .facility-details {
+        padding: 10px;
+    }
+
+    .facility-container {
+        flex-direction: column;
+    }
+
+    .facility-image, .facility-info {
+        width: 100%;
+    }
+}
